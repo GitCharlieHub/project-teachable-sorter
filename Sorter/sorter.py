@@ -96,7 +96,7 @@ def on_new_frame(cv_mat, engine, mean, sliding_window, send_over_ws, cam_sockets
         # NOTE: Teachable Machine 2 works on images of size 224x224 and will resize all inputs
         # to that size. so we have to make sure our edgetpu converted model is fed similar images.
         if (width, height) != (224, 224):
-            img_pil.resize((224, 224))
+            img_pil = img_pil.resize((224, 224), Image.Resampling.LANCZOS)
 
         if (mode == 'train'):
             message = dict()
