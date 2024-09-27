@@ -144,7 +144,9 @@ if __name__ == '__main__':
     server_thread.start()
 
     if args.will_sort:
-        engine = edgetpu.classification.engine.ClassificationEngine(model_path)
+    #    engine = edgetpu.classification.engine.ClassificationEngine(model_path)
+        interpreter = make_interpreter(model_path)
+        interpreter.allocate_tensors()
         mode = "sort"
     else:
         mode = "train"
