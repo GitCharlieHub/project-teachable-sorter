@@ -21,7 +21,11 @@ from utils.BiQuad import BiQuadFilter
 from functools import partial
 from PIL import Image
 from scipy import ndimage
-import edgetpu.classification.engine
+#import edgetpu.classification.engine
+# New pycoral imports
+from pycoral.adapters import classify
+from pycoral.utils.edgetpu import make_interpreter
+from pycoral.adapters.common import input_size
 import threading
 import asyncio
 import base64
